@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registration Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background: #f5f5f5;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    form {
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    input[type="text"], input[type="email"] {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .hobbies-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .error {
+      color: red;
+      font-size: 0.9em;
+    }
+
+    button {
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    #output {
+      max-width: 500px;
+      margin: 20px auto;
+      background: #e8f5e9;
+      padding: 15px;
+      border-radius: 6px;
+    }
+
+    #output h3 {
+      margin-top: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Registration Form</h2>
+  <form id="regForm">
+    <div class="form-group">
+      <label for="firstname">First Name *</label>
+      <input type="text" id="firstname" name="firstname" required>
+      <div class="error" id="fnameError"></div>
+    </div>
+
+    <div class="form-group">
+      <label for="lastname">Last Name *</label>
+      <input type="text" id="lastname" name="lastname" required>
+      <div class="error" id="lnameError"></div>
+    </div>
+
+    <div class="form-group">
+      <label for="org">Organization *</label>
+      <input type="text" id="org" name="org" required>
+      <div class="error" id="orgError"></div>
+    </div>
+
+    <div class="form-group">
+      <label>Hobbies</label>
+      <div class="hobbies-group">
+        <label><input type="checkbox" name="hobbies" value="Reading"> Reading</label>
+        <label><input type="checkbox" name="hobbies" value="Gaming"> Gaming</label>
+        <label><input type="checkbox" name="hobbies" value="Music"> Music</label>
+        <label><input type="checkbox" name="hobbies" value="Sports"> Sports</label>
+      </div>
+    </div>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <div id="output" style="display:none;">
+    <h3>Submitted Details</h3>
+    <p><strong>First Name:</strong> <span id="outFName"></span></p>
+    <p><strong>Last Name:</strong> <span id="outLName"></span></p>
+    <p><strong>Organization:</strong> <span id="outOrg"></span></p>
+    <p><strong>Hobbies:</strong> <span id="outHobbies"></span></p>
+  </div>
+
+  <script>
+    const form = document.getElementById('regForm');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Clear previous error messages
+      document.getElementById('fnameError').textContent = "";
+      document.getElementById('lnameError').textContent = "";
+      document.getElementById('orgError').textContent = "";
+
+      const fname = document.getElementById('firstname').value.trim();
+      const lname = document.getElementById('lastname').value.trim();
+      const org = document.getElementById('org').value.trim();
+      const hobbies = Array.from(document.querySelectorAll('input[name="hobbies"]:checked')).map(el => el.value);
+
+      let hasError = false;
+
+      if (fname === "") {
+        document.getElementById('fnameError').textContent = "First name is required";
+        hasError = true;
+      }
+
+      if (lname === "") {
+        document.getElementById('lnameError').textContent = "Last name is required";
+        hasError = true;
+      }
+
+      if (org === "") {
+        document.getElementById('orgError').textContent = "Organization is required";
+        hasError = true;
+      }
+
+      if (!hasError) {
+        document.getElementById('outFName').textContent = fname;
+        document.getElementById('outLName').textContent = lname;
+        document.getElementById('outOrg').textContent = org;
+        document.getElementById('outHobbies').textContent = hobbies.length ? hobbies.join(', ') : 'None';
+        document.getElementById('output').style.display = 'block';
+        form.reset();
+      }
+    });
+  </script>
+</body>
+</html>

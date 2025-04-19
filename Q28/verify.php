@@ -1,58 +1,88 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
-$conn = new mysqli('localhost', 'root', '', 'email_verification');
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+require 'PHPMailer/PHPMailer.php';
+require 'PHPMailer/SMTP.php';
+require 'PHPMailer/Exception.php';
+
+session_start();
+
+$senderEmail = 'yourgmail@gmail.com';
+$senderPassword = 'yourapppassword';
+$email = 'your_receiver_email@gmail.com';
+$showForm = false;
+
+function sendOTP($email, $otp) {
+    global $senderEmail, $senderPassword;
+
+    $mail = new PHPMailer(true);
+    try {
+        $mail->isSMTP();
+        $mail->Host       = 'smtp.gmail.com';
+        $mail->SMTPAuth   = true;
+        $mail->Username   = $senderEmail;
+        $mail->Password   = $senderPassword;
+        $mail->SMTPSecure = 'tls';
+        $mail->Port       = 587;
+
+        $mail->setFrom($senderEmail, 'OTP Verification');
+        $mail->addAddress($email);
+
+        $mail->isHTML(true);
+        $mail->Subject = 'Your OTP Code';
+        $mail->Body    = "Your OTP is <b>$otp</b>";
+
+        $mail->send();
+        return true;
+    } catch (Exception $e) {
+        echo "Mailer Error: " . $mail->ErrorInfo;
+        return false;
+    }
 }
 
-$message = "";
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    if (isset($_POST['send'])) {
+        $otp = rand(100000, 999999);
+        $_SESSION['otp'] = $otp;
+        $_SESSION['email'] = $email;
 
-if (isset($_GET['token'])) {
-    $token = $_GET['token'];
-
-    $stmt = $conn->prepare("SELECT * FROM users WHERE verification_token = ?");
-    $stmt->bind_param("s", $token);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    if ($result->num_rows > 0) {
-        $update = $conn->prepare("UPDATE users SET is_verified = 1, verification_token = NULL WHERE verification_token = ?");
-        $update->bind_param("s", $token);
-        $update->execute();
-
-        $message = '<div class="alert alert-success">✅ Email Verified Successfully!</div>';
-    } else {
-        $message = '<div class="alert alert-danger">❌ Invalid or Expired Token!</div>';
+        if (sendOTP($email, $otp)) {
+            $showForm = true;
+        } else {
+            echo "Failed to send OTP.";
+        }
     }
-} else {
-    $message = '<div class="alert alert-warning">⚠️ No token provided!</div>';
+
+    if (isset($_POST['verify'])) {
+        $enteredOtp = $_POST['otp'];
+        if ($_SESSION['otp'] == $enteredOtp) {
+            echo "<h3 style='color:green;'>OTP Verified Successfully!</h3>";
+        } else {
+            echo "<h3 style='color:red;'>Invalid OTP.</h3>";
+        }
+    }
 }
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <title>Verify Email</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Email OTP Verification</title>
 </head>
-<body class="bg-light">
+<body>
+    <h2>Email OTP Verification</h2>
 
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-
-            <div class="card p-4 shadow text-center">
-                <h2>Email Verification</h2>
-
-                <?php echo $message; ?>
-
-            </div>
-
-        </div>
-    </div>
-</div>
-
+    <?php if (!$showForm && !isset($_POST['verify'])): ?>
+        <form method="post">
+            <button type="submit" name="send">Send OTP</button>
+        </form>
+    <?php elseif ($showForm || isset($_POST['verify'])): ?>
+        <form method="post">
+            Enter OTP sent to <?php echo $_SESSION['email']; ?>:
+            <input type="text" name="otp" required>
+            <button type="submit" name="verify">Verify</button>
+        </form>
+    <?php endif; ?>
 </body>
 </html>

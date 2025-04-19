@@ -1,62 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Image Gallery</title>
-    <!-- Bootstrap CDN -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <style>
-        body { background: #f8f9fa; padding: 20px; }
-        .gallery img { width: 100%; height: auto; border-radius: 10px; transition: 0.3s ease-in-out; }
-        .gallery img:hover { transform: scale(1.05); cursor: pointer; }
-        .gallery-item { padding: 10px; }
-    </style>
+  <meta charset="UTF-8" />
+  <title>Event Handler Demo</title>
+  <style>
+    body {
+      font-family: Arial;
+      padding: 20px;
+    }
+    button, input {
+      padding: 8px 12px;
+      margin: 10px 0;
+    }
+    #box {
+      width: 200px;
+      height: 100px;
+      background-color: lightblue;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
 
-    <div class="container">
-        <h2 class="text-center my-4">Image Gallery</h2>
-        
-        <div class="row gallery">
-            <div class="col-md-4 col-sm-6 gallery-item">
-                <img src="https://source.unsplash.com/400x300/?nature,water" alt="Nature Image" class="img-fluid"
-                     data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImage(this.src)">
-            </div>
-            <div class="col-md-4 col-sm-6 gallery-item">
-                <img src="https://source.unsplash.com/400x300/?mountain,landscape" alt="Mountain Image" class="img-fluid"
-                     data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImage(this.src)">
-            </div>
-            <div class="col-md-4 col-sm-6 gallery-item">
-                <img src="https://source.unsplash.com/400x300/?forest,trees" alt="Forest Image" class="img-fluid"
-                     data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImage(this.src)">
-            </div>
-            <div class="col-md-4 col-sm-6 gallery-item">
-                <img src="https://source.unsplash.com/400x300/?city,night" alt="City Image" class="img-fluid"
-                     data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImage(this.src)">
-            </div>
-            <div class="col-md-4 col-sm-6 gallery-item">
-                <img src="https://source.unsplash.com/400x300/?beach,ocean" alt="Beach Image" class="img-fluid"
-                     data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImage(this.src)">
-            </div>
-            <div class="col-md-4 col-sm-6 gallery-item">
-                <img src="https://source.unsplash.com/400x300/?sky,clouds" alt="Sky Image" class="img-fluid"
-                     data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImage(this.src)">
-            </div>
-        </div>
-    </div>
+  <h2>JavaScript Event Handlers Demo ⚙️</h2>
 
-  
+  <!-- Click Event -->
+  <button onclick="handleClick()">Click Me</button>
+  <p id="clickResult"></p>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Mouseover Event -->
+  <div id="box" onmouseover="handleMouseOver()" onmouseout="handleMouseOut()">
+    Hover over me
+  </div>
 
-    <!-- JavaScript for Lightbox Effect -->
-    <script>
-        function showImage(src) {
-            document.getElementById("modalImg").src = src;
-        }
-    </script>
+  <!-- Keyup Event -->
+  <input type="text" id="keyInput" placeholder="Type something..." onkeyup="handleKeyup()"/>
+  <p id="keyResult"></p>
+
+  <!-- Submit Event -->
+  <form onsubmit="handleSubmit(event)">
+    <input type="text" id="nameField" placeholder="Your name" required />
+    <button type="submit">Submit</button>
+  </form>
+  <p id="submitResult"></p>
+
+  <script>
+    function handleClick() {
+      document.getElementById("clickResult").innerText = "Button was clicked!";
+    }
+
+    function handleMouseOver() {
+      document.getElementById("box").style.backgroundColor = "orange";
+    }
+
+    function handleMouseOut() {
+      document.getElementById("box").style.backgroundColor = "lightblue";
+    }
+
+    function handleKeyup() {
+      let value = document.getElementById("keyInput").value;
+      document.getElementById("keyResult").innerText = "You typed: " + value;
+    }
+
+    function handleSubmit(event) {
+      event.preventDefault(); // Prevent actual form submission
+      let name = document.getElementById("nameField").value;
+      document.getElementById("submitResult").innerText = "Submitted: " + name;
+    }
+  </script>
 
 </body>
 </html>
