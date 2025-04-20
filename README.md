@@ -1,12 +1,6 @@
 # MockTest Repository
 
-This repository contains a series of web development exercises, each located in its own directory. The exercises cover various aspects of HTML, CSS, JavaScript, and PHP.
-
-## Directory Structure
-
-- **Q01 to Q09**: Basic HTML and CSS exercises.
-- **Q10 to Q19**: Intermediate exercises involving JavaScript and Bootstrap.
-- **Q20 to Q24**: Advanced exercises with PHP and server-side scripting.
+This repository contains a series of web development exercises, each located in its own directory. The exercises cover various aspects of HTML, CSS, JavaScript, and PHP, and are based on the "SDL1 Problem Statements."
 
 Each directory contains an `index.html` or `index.php` file that serves as the entry point for the exercise.
 
