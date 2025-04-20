@@ -77,12 +77,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <?php if (!$showForm && !isset($_POST['verify'])): ?>
         <form method="post">
+            <input type="text" name="email" placeholder="Email"></input>
             <button type="submit" name="send">Send OTP</button>
         </form>
     <?php elseif ($showForm || isset($_POST['verify'])): ?>
         <form method="post">
-            Enter OTP sent to <?php echo $_SESSION['email']; ?>:
-            <input type="text" name="otp" required>
+            <input type="text" name="otp" placeholder="Enter OTP sent to <?php echo $_SESSION['email']; ?>" required>
             <button type="submit" name="verify">Verify</button>
         </form>
     <?php endif; ?>

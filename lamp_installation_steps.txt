@@ -1,0 +1,22 @@
+1. Update your system
+> sudo apt update
+> sudo apt upgrade
+
+2. Install Apache
+> sudo apt install apache2
+
+3. Install MySQL
+> sudo apt install mysql-server
+
+4. Install PHP
+> sudo apt install php libapache2-mod-php php-mysql
+
+5. Start/Stop/Restart Apache Server
+Start Apache:
+> sudo systemctl start apache2
+Stop Apache:
+> sudo systemctl stop apache2
+
+6. Change the ownership & permission of the directory to your user:
+> sudo chown -R yourusername:www-data /var/www/html
+> sudo chmod -R 755 /var/www/html

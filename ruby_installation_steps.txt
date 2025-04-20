@@ -1,0 +1,12 @@
+1. 1. Update your system
+> sudo apt update
+> sudo apt upgrade
+
+2. Install Ruby
+> sudo apt install ruby-full
+
+2. Install Bundler (Ruby dependency manager)
+> gem install bundler
+
+3. Install Required Gems
+> gem install dotenv mail sinatra
