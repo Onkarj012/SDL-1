@@ -1,101 +1,102 @@
+<!-- 17. Create a image gallery using Html ,CSS/Bootstrap -->
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Simple Image Gallery</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f8f9fa;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Image Gallery</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f9fa;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
 
-    h1 {
-      margin: 30px 0;
-    }
+      h1 {
+        margin: 30px 0;
+      }
 
-    .carousel {
-      position: relative;
-      width: 80%;
-      max-width: 800px;
-      margin: auto;
-      overflow: hidden;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    }
+      .carousel {
+        position: relative;
+        width: 80%;
+        max-width: 800px;
+        margin: auto;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
 
-    .carousel-images {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-    }
+      .carousel-images {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+      }
 
-    .carousel-images img {
-      width: 100%;
-      flex-shrink: 0;
-    }
+      .carousel-images img {
+        width: 100%;
+        flex-shrink: 0;
+      }
 
-    .nav-button {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: rgba(0, 0, 0, 0.5);
-      color: white;
-      border: none;
-      font-size: 24px;
-      padding: 10px 16px;
-      cursor: pointer;
-      border-radius: 50%;
-    }
+      .nav-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        font-size: 24px;
+        padding: 10px 16px;
+        cursor: pointer;
+        border-radius: 50%;
+      }
 
-    .prev {
-      left: 10px;
-    }
+      .prev {
+        left: 10px;
+      }
 
-    .next {
-      right: 10px;
-    }
+      .next {
+        right: 10px;
+      }
 
-    .nav-button:hover {
-      background-color: rgba(0, 0, 0, 0.8);
-    }
-  </style>
-</head>
-<body>
+      .nav-button:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Simple Image Gallery</h1>
 
-  <h1>Simple Image Gallery</h1>
-
-  <div class="carousel">
-    <div class="carousel-images" id="carouselImages">
-      <img src="https://picsum.photos/800/400?random=1" alt="Image 1" />
-      <img src="https://picsum.photos/800/400?random=2" alt="Image 2" />
-      <img src="https://picsum.photos/800/400?random=3" alt="Image 3" />
+    <div class="carousel">
+      <div class="carousel-images" id="carouselImages">
+        <img src="https://picsum.photos/800/400?random=1" alt="Image 1" />
+        <img src="https://picsum.photos/800/400?random=2" alt="Image 2" />
+        <img src="https://picsum.photos/800/400?random=3" alt="Image 3" />
+      </div>
+      <button class="nav-button prev" onclick="prevSlide()">❮</button>
+      <button class="nav-button next" onclick="nextSlide()">❯</button>
     </div>
-    <button class="nav-button prev" onclick="prevSlide()">❮</button>
-    <button class="nav-button next" onclick="nextSlide()">❯</button>
-  </div>
 
-  <script>
-    let currentIndex = 0;
-    const images = document.querySelectorAll('#carouselImages img');
-    const totalImages = images.length;
+    <script>
+      let currentIndex = 0;
+      const images = document.querySelectorAll("#carouselImages img");
+      const totalImages = images.length;
 
-    function updateCarousel() {
-      const carousel = document.getElementById('carouselImages');
-      carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
-    }
+      function updateCarousel() {
+        const carousel = document.getElementById("carouselImages");
+        carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+      }
 
-    function nextSlide() {
-      currentIndex = (currentIndex + 1) % totalImages;
-      updateCarousel();
-    }
+      function nextSlide() {
+        currentIndex = (currentIndex + 1) % totalImages;
+        updateCarousel();
+      }
 
-    function prevSlide() {
-      currentIndex = (currentIndex - 1 + totalImages) % totalImages;
-      updateCarousel();
-    }
-  </script>
-</body>
+      function prevSlide() {
+        currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+        updateCarousel();
+      }
+    </script>
+  </body>
 </html>

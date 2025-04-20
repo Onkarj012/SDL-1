@@ -1,67 +1,69 @@
+<!-- 14.Create Fibonacci series in JavaScript and display on HTML -->
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Fibonacci Series</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 40px;
-      background: #f5f5f5;
-      text-align: center;
-    }
-
-    input {
-      padding: 8px;
-      width: 100px;
-    }
-
-    button {
-      padding: 8px 16px;
-      margin-left: 10px;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    #output {
-      margin-top: 20px;
-      font-size: 18px;
-      color: #333;
-    }
-  </style>
-</head>
-<body>
-
-  <h2>Fibonacci Series Generator 🔢</h2>
-  <input type="number" id="count" placeholder="Enter count" min="1"/>
-  <button onclick="generateFibonacci()">Generate</button>
-
-  <div id="output"></div>
-
-  <script>
-    function generateFibonacci() {
-      const n = parseInt(document.getElementById("count").value);
-      const outputDiv = document.getElementById("output");
-
-      if (isNaN(n) || n <= 0) {
-        outputDiv.innerHTML = "Please enter a valid positive number.";
-        return;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fibonacci Series</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 40px;
+        background: #f5f5f5;
+        text-align: center;
       }
 
-      let fibSeries = [0];
-      if (n > 1) fibSeries.push(1);
-
-      for (let i = 2; i < n; i++) {
-        fibSeries.push(fibSeries[i - 1] + fibSeries[i - 2]);
+      input {
+        padding: 8px;
+        width: 100px;
       }
 
-      outputDiv.innerHTML = `Fibonacci Series (${n} terms): <br><strong>${fibSeries.join(", ")}</strong>`;
-    }
-  </script>
+      button {
+        padding: 8px 16px;
+        margin-left: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
 
-</body>
+      #output {
+        margin-top: 20px;
+        font-size: 18px;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Fibonacci Series Generator 🔢</h2>
+    <input type="number" id="count" placeholder="Enter count" min="1" />
+    <button onclick="generateFibonacci()">Generate</button>
+
+    <div id="output"></div>
+
+    <script>
+      function generateFibonacci() {
+        const n = parseInt(document.getElementById("count").value);
+        const outputDiv = document.getElementById("output");
+
+        if (isNaN(n) || n <= 0) {
+          outputDiv.innerHTML = "Please enter a valid positive number.";
+          return;
+        }
+
+        let fibSeries = [0];
+        if (n > 1) fibSeries.push(1);
+
+        for (let i = 2; i < n; i++) {
+          fibSeries.push(fibSeries[i - 1] + fibSeries[i - 2]);
+        }
+
+        outputDiv.innerHTML = `Fibonacci Series (${n} terms): <br><strong>${fibSeries.join(
+          ", "
+        )}</strong>`;
+      }
+    </script>
+  </body>
 </html>

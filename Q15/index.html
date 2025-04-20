@@ -1,147 +1,149 @@
+<!-- 15.Create sign up page and display name after login(username &amp;
+Password) with Validation. -->
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sign Up & Login</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 40px;
-      background: #f0f0f0;
-    }
-
-    h2 {
-      text-align: center;
-    }
-
-    .container {
-      max-width: 400px;
-      margin: auto;
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    .form-group {
-      margin-bottom: 15px;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 6px;
-    }
-
-    input[type="text"], input[type="password"] {
-      width: 100%;
-      padding: 8px;
-      border-radius: 4px;
-      border: 1px solid #ccc;
-    }
-
-    button {
-      background: #28a745;
-      color: white;
-      border: none;
-      padding: 10px 16px;
-      width: 100%;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    .error {
-      color: red;
-      font-size: 0.9em;
-    }
-
-    #welcome {
-      text-align: center;
-      background: #d1e7dd;
-      padding: 15px;
-      border-radius: 6px;
-      display: none;
-      margin-top: 20px;
-    }
-  </style>
-</head>
-<body>
-
-  <div class="container" id="signupForm">
-    <h2>Sign Up</h2>
-    <div class="form-group">
-      <label for="signupUser">Username</label>
-      <input type="text" id="signupUser" required>
-    </div>
-    <div class="form-group">
-      <label for="signupPass">Password</label>
-      <input type="password" id="signupPass" required>
-    </div>
-    <button onclick="register()">Sign Up</button>
-    <div class="error" id="signupError"></div>
-  </div>
-
-  <div class="container" id="loginForm" style="display:none;">
-    <h2>Login</h2>
-    <div class="form-group">
-      <label for="loginUser">Username</label>
-      <input type="text" id="loginUser" required>
-    </div>
-    <div class="form-group">
-      <label for="loginPass">Password</label>
-      <input type="password" id="loginPass" required>
-    </div>
-    <button onclick="login()">Login</button>
-    <div class="error" id="loginError"></div>
-  </div>
-
-  <div id="welcome">
-    <h3>Welcome, <span id="displayUser"></span> 👋</h3>
-  </div>
-
-  <script>
-    let storedUser = "";
-    let storedPass = "";
-
-    function register() {
-      const user = document.getElementById("signupUser").value.trim();
-      const pass = document.getElementById("signupPass").value.trim();
-      const error = document.getElementById("signupError");
-
-      if (user === "" || pass === "") {
-        error.textContent = "Both fields are required!";
-        return;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up & Login</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 40px;
+        background: #f0f0f0;
       }
 
-      storedUser = user;
-      storedPass = pass;
-      error.textContent = "";
-
-      // Switch to login form
-      document.getElementById("signupForm").style.display = "none";
-      document.getElementById("loginForm").style.display = "block";
-    }
-
-    function login() {
-      const user = document.getElementById("loginUser").value.trim();
-      const pass = document.getElementById("loginPass").value.trim();
-      const error = document.getElementById("loginError");
-
-      if (user === "" || pass === "") {
-        error.textContent = "Both fields are required!";
-        return;
+      h2 {
+        text-align: center;
       }
 
-      if (user === storedUser && pass === storedPass) {
+      .container {
+        max-width: 400px;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 6px;
+      }
+
+      input[type="text"],
+      input[type="password"] {
+        width: 100%;
+        padding: 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+      }
+
+      button {
+        background: #28a745;
+        color: white;
+        border: none;
+        padding: 10px 16px;
+        width: 100%;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      .error {
+        color: red;
+        font-size: 0.9em;
+      }
+
+      #welcome {
+        text-align: center;
+        background: #d1e7dd;
+        padding: 15px;
+        border-radius: 6px;
+        display: none;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" id="signupForm">
+      <h2>Sign Up</h2>
+      <div class="form-group">
+        <label for="signupUser">Username</label>
+        <input type="text" id="signupUser" required />
+      </div>
+      <div class="form-group">
+        <label for="signupPass">Password</label>
+        <input type="password" id="signupPass" required />
+      </div>
+      <button onclick="register()">Sign Up</button>
+      <div class="error" id="signupError"></div>
+    </div>
+
+    <div class="container" id="loginForm" style="display: none">
+      <h2>Login</h2>
+      <div class="form-group">
+        <label for="loginUser">Username</label>
+        <input type="text" id="loginUser" required />
+      </div>
+      <div class="form-group">
+        <label for="loginPass">Password</label>
+        <input type="password" id="loginPass" required />
+      </div>
+      <button onclick="login()">Login</button>
+      <div class="error" id="loginError"></div>
+    </div>
+
+    <div id="welcome">
+      <h3>Welcome, <span id="displayUser"></span> 👋</h3>
+    </div>
+
+    <script>
+      let storedUser = "";
+      let storedPass = "";
+
+      function register() {
+        const user = document.getElementById("signupUser").value.trim();
+        const pass = document.getElementById("signupPass").value.trim();
+        const error = document.getElementById("signupError");
+
+        if (user === "" || pass === "") {
+          error.textContent = "Both fields are required!";
+          return;
+        }
+
+        storedUser = user;
+        storedPass = pass;
         error.textContent = "";
-        document.getElementById("loginForm").style.display = "none";
-        document.getElementById("welcome").style.display = "block";
-        document.getElementById("displayUser").textContent = storedUser;
-      } else {
-        error.textContent = "Invalid credentials!";
-      }
-    }
-  </script>
 
-</body>
+        // Switch to login form
+        document.getElementById("signupForm").style.display = "none";
+        document.getElementById("loginForm").style.display = "block";
+      }
+
+      function login() {
+        const user = document.getElementById("loginUser").value.trim();
+        const pass = document.getElementById("loginPass").value.trim();
+        const error = document.getElementById("loginError");
+
+        if (user === "" || pass === "") {
+          error.textContent = "Both fields are required!";
+          return;
+        }
+
+        if (user === storedUser && pass === storedPass) {
+          error.textContent = "";
+          document.getElementById("loginForm").style.display = "none";
+          document.getElementById("welcome").style.display = "block";
+          document.getElementById("displayUser").textContent = storedUser;
+        } else {
+          error.textContent = "Invalid credentials!";
+        }
+      }
+    </script>
+  </body>
 </html>

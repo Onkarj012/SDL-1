@@ -1,3 +1,5 @@
+<!-- 20. Create and store the cookies. -->
+
 <?php
 // If the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

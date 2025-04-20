@@ -1,3 +1,5 @@
+<!-- 10.Develop a app using PHP and MySQL for Pharmacy Management System. -->
+
 <?php
 // Database connection
 $host = "localhost";

@@ -1,63 +1,65 @@
+<!-- 12. Create simple HTML forms with input elements and a button. -->
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Simple HTML Form</title>
-  <style>
-    body {
-      font-family: Arial;
-      margin: 30px;
-    }
-    label {
-      display: block;
-      margin-top: 15px;
-    }
-    input, textarea, select {
-      padding: 8px;
-      width: 300px;
-      margin-top: 5px;
-    }
-    button {
-      margin-top: 20px;
-      padding: 10px 15px;
-      background-color: teal;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-  </style>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Simple HTML Form</title>
+    <style>
+      body {
+        font-family: Arial;
+        margin: 30px;
+      }
+      label {
+        display: block;
+        margin-top: 15px;
+      }
+      input,
+      textarea,
+      select {
+        padding: 8px;
+        width: 300px;
+        margin-top: 5px;
+      }
+      button {
+        margin-top: 20px;
+        padding: 10px 15px;
+        background-color: teal;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Contact Form 📬</h2>
 
-  <h2>Contact Form 📬</h2>
+    <form onsubmit="handleSubmit(event)">
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name" required />
 
-  <form onsubmit="handleSubmit(event)">
-    <label for="name">Full Name:</label>
-    <input type="text" id="name" name="name" required>
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="email" required />
 
-    <label for="email">Email Address:</label>
-    <input type="email" id="email" name="email" required>
+      <label for="message">Your Message:</label>
+      <textarea id="message" name="message" rows="4" required></textarea>
 
-    <label for="message">Your Message:</label>
-    <textarea id="message" name="message" rows="4" required></textarea>
+      <label for="country">Select Country:</label>
+      <select id="country" name="country" required>
+        <option value="">--Select--</option>
+        <option value="India">India</option>
+        <option value="USA">USA</option>
+        <option value="UK">UK</option>
+      </select>
 
-    <label for="country">Select Country:</label>
-    <select id="country" name="country" required>
-      <option value="">--Select--</option>
-      <option value="India">India</option>
-      <option value="USA">USA</option>
-      <option value="UK">UK</option>
-    </select>
+      <button type="submit">Submit</button>
+    </form>
 
-    <button type="submit">Submit</button>
-  </form>
-
-  <script>
-    function handleSubmit(event) {
-      event.preventDefault();
-      alert("Form submitted successfully!");
-    }
-  </script>
-
-</body>
+    <script>
+      function handleSubmit(event) {
+        event.preventDefault();
+        alert("Form submitted successfully!");
+      }
+    </script>
+  </body>
 </html>

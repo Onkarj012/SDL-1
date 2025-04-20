@@ -1,3 +1,5 @@
+# 34.Write a Ruby Script to send an Email to a specific User.
+
 require 'dotenv'
 require 'mail'
 

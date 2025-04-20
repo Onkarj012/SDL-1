@@ -1,62 +1,67 @@
+<!-- 3. Design a facebook registration form and Apply field level validation using
+javascript for Facebook registration form. -->
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Facebook Registration Form</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-
-<div class="container">
-    <h3 class="text-center">Facebook Registration</h3>
-    <form id="registrationForm">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h3 class="text-center">Facebook Registration</h3>
+      <form id="registrationForm">
         <div class="mb-3">
-            <label for="firstName" class="form-label">First Name</label>
-            <input type="text" id="firstName" class="form-control">
-            <div class="error" id="firstNameError"></div>
+          <label for="firstName" class="form-label">First Name</label>
+          <input type="text" id="firstName" class="form-control" />
+          <div class="error" id="firstNameError"></div>
         </div>
 
         <div class="mb-3">
-            <label for="lastName" class="form-label">Last Name</label>
-            <input type="text" id="lastName" class="form-control">
-            <div class="error" id="lastNameError"></div>
+          <label for="lastName" class="form-label">Last Name</label>
+          <input type="text" id="lastName" class="form-control" />
+          <div class="error" id="lastNameError"></div>
         </div>
 
         <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" id="email" class="form-control">
-            <div class="error" id="emailError"></div>
+          <label for="email" class="form-label">Email</label>
+          <input type="email" id="email" class="form-control" />
+          <div class="error" id="emailError"></div>
         </div>
 
         <div class="mb-3">
-            <label for="password" class="form-label">Password</label>
-            <input type="password" id="password" class="form-control">
-            <div class="error" id="passwordError"></div>
+          <label for="password" class="form-label">Password</label>
+          <input type="password" id="password" class="form-control" />
+          <div class="error" id="passwordError"></div>
         </div>
 
         <div class="mb-3">
-            <label class="form-label">Gender</label>
-            <div>
-                <input type="radio" name="gender" value="Male" id="male"> Male
-                <input type="radio" name="gender" value="Female" id="female"> Female
-                <input type="radio" name="gender" value="Other" id="other"> Other
-            </div>
-            <div class="error" id="genderError"></div>
+          <label class="form-label">Gender</label>
+          <div>
+            <input type="radio" name="gender" value="Male" id="male" /> Male
+            <input type="radio" name="gender" value="Female" id="female" />
+            Female
+            <input type="radio" name="gender" value="Other" id="other" /> Other
+          </div>
+          <div class="error" id="genderError"></div>
         </div>
 
         <div class="mb-3">
-            <label for="dob" class="form-label">Date of Birth</label>
-            <input type="date" id="dob" class="form-control">
-            <div class="error" id="dobError"></div>
+          <label for="dob" class="form-label">Date of Birth</label>
+          <input type="date" id="dob" class="form-control" />
+          <div class="error" id="dobError"></div>
         </div>
 
         <button type="submit" class="btn btn-primary w-100">Register</button>
-    </form>
-</div>
+      </form>
+    </div>
 
-<script src="script.js"></script>
-
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>

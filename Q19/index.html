@@ -1,153 +1,159 @@
+<!-- 19.Create a notification popup. -->
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dynamic Notifications</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-      background-color: #f8f9fa;
-    }
-
-    button {
-      padding: 8px 16px;
-      font-size: 14px;
-      cursor: pointer;
-      border: none;
-      border-radius: 5px;
-    }
-
-    .primary-btn {
-      background-color: #007bff;
-      color: white;
-    }
-
-    .secondary-btn {
-      background-color: #6c757d;
-      color: white;
-      margin-top: 10px;
-    }
-
-    .outline-btn {
-      background-color: transparent;
-      border: 1px solid #333;
-      color: #333;
-    }
-
-    .notification-item {
-      border-bottom: 1px solid #eee;
-      padding: 8px 0;
-      margin-bottom: 6px;
-      border-radius: 5px;
-    }
-
-    .notification-item:last-child {
-      border-bottom: none;
-    }
-
-    .notification-text {
-      margin-bottom: 6px;
-    }
-
-    .alert-success {
-      background-color: #d4edda;
-      color: #155724;
-    }
-
-    .alert-info {
-      background-color: #d1ecf1;
-      color: #0c5460;
-    }
-
-    .alert-warning {
-      background-color: #fff3cd;
-      color: #856404;
-    }
-
-    #notificationPopup {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      width: 320px;
-      background: #fff;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      padding: 15px;
-      display: none;
-      z-index: 9999;
-    }
-
-    .heading {
-      margin-bottom: 12px;
-      font-size: 18px;
-      font-weight: bold;
-    }
-
-    .text-muted {
-      color: #6c757d;
-    }
-  </style>
-</head>
-<body>
-
-  <!-- Button to show notifications -->
-  <button class="primary-btn" onclick="showPopup()">
-    Show Notifications
-  </button>
-
-  <!-- Notification Popup -->
-  <div id="notificationPopup">
-    <div class="heading">Notifications</div>
-    <div id="notificationsList">
-      <!-- Dynamic notifications will appear here -->
-    </div>
-    <button class="secondary-btn" onclick="hidePopup()">Close</button>
-  </div>
-
-  <script>
-    // Define notifications dynamically
-    let notifications = [
-      { id: 1, text: "🎉 You have a new message!", type: "success" },
-      { id: 2, text: "📢 New update available.", type: "info" },
-      { id: 3, text: "⚠️ Your subscription is about to expire.", type: "warning" },
-    ];
-
-    function showPopup() {
-      document.getElementById("notificationPopup").style.display = "block";
-      renderNotifications();
-    }
-
-    function hidePopup() {
-      document.getElementById("notificationPopup").style.display = "none";
-    }
-
-    function renderNotifications() {
-      const notificationsList = document.getElementById("notificationsList");
-      notificationsList.innerHTML = "";
-
-      if (notifications.length === 0) {
-        notificationsList.innerHTML = '<div class="text-muted">No new notifications.</div>';
-        return;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dynamic Notifications</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background-color: #f8f9fa;
       }
 
-      notifications.forEach((notification) => {
-        const div = document.createElement("div");
-        div.className = `notification-item alert-${notification.type}`;
-        div.innerHTML = `
+      button {
+        padding: 8px 16px;
+        font-size: 14px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+      }
+
+      .primary-btn {
+        background-color: #007bff;
+        color: white;
+      }
+
+      .secondary-btn {
+        background-color: #6c757d;
+        color: white;
+        margin-top: 10px;
+      }
+
+      .outline-btn {
+        background-color: transparent;
+        border: 1px solid #333;
+        color: #333;
+      }
+
+      .notification-item {
+        border-bottom: 1px solid #eee;
+        padding: 8px 0;
+        margin-bottom: 6px;
+        border-radius: 5px;
+      }
+
+      .notification-item:last-child {
+        border-bottom: none;
+      }
+
+      .notification-text {
+        margin-bottom: 6px;
+      }
+
+      .alert-success {
+        background-color: #d4edda;
+        color: #155724;
+      }
+
+      .alert-info {
+        background-color: #d1ecf1;
+        color: #0c5460;
+      }
+
+      .alert-warning {
+        background-color: #fff3cd;
+        color: #856404;
+      }
+
+      #notificationPopup {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        width: 320px;
+        background: #fff;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        padding: 15px;
+        display: none;
+        z-index: 9999;
+      }
+
+      .heading {
+        margin-bottom: 12px;
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      .text-muted {
+        color: #6c757d;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Button to show notifications -->
+    <button class="primary-btn" onclick="showPopup()">
+      Show Notifications
+    </button>
+
+    <!-- Notification Popup -->
+    <div id="notificationPopup">
+      <div class="heading">Notifications</div>
+      <div id="notificationsList">
+        <!-- Dynamic notifications will appear here -->
+      </div>
+      <button class="secondary-btn" onclick="hidePopup()">Close</button>
+    </div>
+
+    <script>
+      // Define notifications dynamically
+      let notifications = [
+        { id: 1, text: "🎉 You have a new message!", type: "success" },
+        { id: 2, text: "📢 New update available.", type: "info" },
+        {
+          id: 3,
+          text: "⚠️ Your subscription is about to expire.",
+          type: "warning",
+        },
+      ];
+
+      function showPopup() {
+        document.getElementById("notificationPopup").style.display = "block";
+        renderNotifications();
+      }
+
+      function hidePopup() {
+        document.getElementById("notificationPopup").style.display = "none";
+      }
+
+      function renderNotifications() {
+        const notificationsList = document.getElementById("notificationsList");
+        notificationsList.innerHTML = "";
+
+        if (notifications.length === 0) {
+          notificationsList.innerHTML =
+            '<div class="text-muted">No new notifications.</div>';
+          return;
+        }
+
+        notifications.forEach((notification) => {
+          const div = document.createElement("div");
+          div.className = `notification-item alert-${notification.type}`;
+          div.innerHTML = `
           <div class="notification-text">${notification.text}</div>
           <button class="outline-btn" onclick="markAsSeen(${notification.id})">Mark as Seen</button>
         `;
-        notificationsList.appendChild(div);
-      });
-    }
+          notificationsList.appendChild(div);
+        });
+      }
 
-    function markAsSeen(id) {
-      notifications = notifications.filter((notif) => notif.id !== id);
-      renderNotifications();
-    }
-  </script>
-</body>
+      function markAsSeen(id) {
+        notifications = notifications.filter((notif) => notif.id !== id);
+        renderNotifications();
+      }
+    </script>
+  </body>
 </html>

@@ -1,126 +1,128 @@
+<!-- 1. Design a TY Time Table using HTML, CSS/Bootstrap containing Subject
+Name, Faculty Initials, Time Slot and Day of the week. -->
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TY Time Table</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        h1 {
-            text-align: center;
-            margin-top: 20px;
-        }
-        .table-container {
-            width: 80%;
-            margin: 30px auto;
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            padding: 12px;
-            text-align: center;
-            border: 1px solid #ddd;
-        }
-        th {
-            background-color: #007BFF;
-            color: white;
-        }
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-        tr:hover {
-            background-color: #f1f1f1;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+      h1 {
+        text-align: center;
+        margin-top: 20px;
+      }
+      .table-container {
+        width: 80%;
+        margin: 30px auto;
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        padding: 12px;
+        text-align: center;
+        border: 1px solid #ddd;
+      }
+      th {
+        background-color: #007bff;
+        color: white;
+      }
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+      tr:hover {
+        background-color: #f1f1f1;
+      }
     </style>
-</head>
-<body>
-
-<div class="table-container">
-    <h1>TY Time Table</h1>
-    <table>
+  </head>
+  <body>
+    <div class="table-container">
+      <h1>TY Time Table</h1>
+      <table>
         <thead>
-            <tr>
-                <th>Day</th>
-                <th>Subject Name</th>
-                <th>Faculty Initials</th>
-                <th>Time Slot</th>
-            </tr>
+          <tr>
+            <th>Day</th>
+            <th>Subject Name</th>
+            <th>Faculty Initials</th>
+            <th>Time Slot</th>
+          </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Monday</td>
-                <td>Mathematics</td>
-                <td>AB</td>
-                <td>9:00 AM - 10:30 AM</td>
-            </tr>
-            <tr>
-                <td>Monday</td>
-                <td>Physics</td>
-                <td>CD</td>
-                <td>10:30 AM - 12:00 PM</td>
-            </tr>
-            <tr>
-                <td>Tuesday</td>
-                <td>Chemistry</td>
-                <td>EF</td>
-                <td>9:00 AM - 10:30 AM</td>
-            </tr>
-            <tr>
-                <td>Tuesday</td>
-                <td>Biology</td>
-                <td>GH</td>
-                <td>10:30 AM - 12:00 PM</td>
-            </tr>
-            <tr>
-                <td>Wednesday</td>
-                <td>Computer Science</td>
-                <td>IJ</td>
-                <td>9:00 AM - 10:30 AM</td>
-            </tr>
-            <tr>
-                <td>Wednesday</td>
-                <td>Economics</td>
-                <td>KL</td>
-                <td>10:30 AM - 12:00 PM</td>
-            </tr>
-            <tr>
-                <td>Thursday</td>
-                <td>History</td>
-                <td>MN</td>
-                <td>9:00 AM - 10:30 AM</td>
-            </tr>
-            <tr>
-                <td>Thursday</td>
-                <td>English</td>
-                <td>OP</td>
-                <td>10:30 AM - 12:00 PM</td>
-            </tr>
-            <tr>
-                <td>Friday</td>
-                <td>Philosophy</td>
-                <td>QR</td>
-                <td>9:00 AM - 10:30 AM</td>
-            </tr>
-            <tr>
-                <td>Friday</td>
-                <td>Psychology</td>
-                <td>ST</td>
-                <td>10:30 AM - 12:00 PM</td>
-            </tr>
+          <tr>
+            <td>Monday</td>
+            <td>Mathematics</td>
+            <td>AB</td>
+            <td>9:00 AM - 10:30 AM</td>
+          </tr>
+          <tr>
+            <td>Monday</td>
+            <td>Physics</td>
+            <td>CD</td>
+            <td>10:30 AM - 12:00 PM</td>
+          </tr>
+          <tr>
+            <td>Tuesday</td>
+            <td>Chemistry</td>
+            <td>EF</td>
+            <td>9:00 AM - 10:30 AM</td>
+          </tr>
+          <tr>
+            <td>Tuesday</td>
+            <td>Biology</td>
+            <td>GH</td>
+            <td>10:30 AM - 12:00 PM</td>
+          </tr>
+          <tr>
+            <td>Wednesday</td>
+            <td>Computer Science</td>
+            <td>IJ</td>
+            <td>9:00 AM - 10:30 AM</td>
+          </tr>
+          <tr>
+            <td>Wednesday</td>
+            <td>Economics</td>
+            <td>KL</td>
+            <td>10:30 AM - 12:00 PM</td>
+          </tr>
+          <tr>
+            <td>Thursday</td>
+            <td>History</td>
+            <td>MN</td>
+            <td>9:00 AM - 10:30 AM</td>
+          </tr>
+          <tr>
+            <td>Thursday</td>
+            <td>English</td>
+            <td>OP</td>
+            <td>10:30 AM - 12:00 PM</td>
+          </tr>
+          <tr>
+            <td>Friday</td>
+            <td>Philosophy</td>
+            <td>QR</td>
+            <td>9:00 AM - 10:30 AM</td>
+          </tr>
+          <tr>
+            <td>Friday</td>
+            <td>Psychology</td>
+            <td>ST</td>
+            <td>10:30 AM - 12:00 PM</td>
+          </tr>
         </tbody>
-    </table>
-</div>
-
-</body>
+      </table>
+    </div>
+  </body>
 </html>

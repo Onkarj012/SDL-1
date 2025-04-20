@@ -1,3 +1,6 @@
+<!-- 11.Develop a app using PHP and MySQl for College Admission Management
+System. -->
+
 <?php
 // Database Connection
 $host = "localhost";

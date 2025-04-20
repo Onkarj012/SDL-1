@@ -1,3 +1,7 @@
+# 33.Install Ruby Environment Setup and Write a Ruby program which accept
+# the user's first and last name and print them in reverse order with a space
+# between them.
+
 require 'sinatra'
 
 get '/' do

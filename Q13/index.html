@@ -1,73 +1,81 @@
+<!-- 13. Write Javascript functions that are used as event handlers. -->
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Event Handler Demo</title>
-  <style>
-    body {
-      font-family: Arial;
-      padding: 20px;
-    }
-    button, input {
-      padding: 8px 12px;
-      margin: 10px 0;
-    }
-    #box {
-      width: 200px;
-      height: 100px;
-      background-color: lightblue;
-      margin-top: 20px;
-    }
-  </style>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Event Handler Demo</title>
+    <style>
+      body {
+        font-family: Arial;
+        padding: 20px;
+      }
+      button,
+      input {
+        padding: 8px 12px;
+        margin: 10px 0;
+      }
+      #box {
+        width: 200px;
+        height: 100px;
+        background-color: lightblue;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>JavaScript Event Handlers Demo ⚙️</h2>
 
-  <h2>JavaScript Event Handlers Demo ⚙️</h2>
+    <!-- Click Event -->
+    <button onclick="handleClick()">Click Me</button>
+    <p id="clickResult"></p>
 
-  <!-- Click Event -->
-  <button onclick="handleClick()">Click Me</button>
-  <p id="clickResult"></p>
+    <!-- Mouseover Event -->
+    <div id="box" onmouseover="handleMouseOver()" onmouseout="handleMouseOut()">
+      Hover over me
+    </div>
 
-  <!-- Mouseover Event -->
-  <div id="box" onmouseover="handleMouseOver()" onmouseout="handleMouseOut()">
-    Hover over me
-  </div>
+    <!-- Keyup Event -->
+    <input
+      type="text"
+      id="keyInput"
+      placeholder="Type something..."
+      onkeyup="handleKeyup()"
+    />
+    <p id="keyResult"></p>
 
-  <!-- Keyup Event -->
-  <input type="text" id="keyInput" placeholder="Type something..." onkeyup="handleKeyup()"/>
-  <p id="keyResult"></p>
+    <!-- Submit Event -->
+    <form onsubmit="handleSubmit(event)">
+      <input type="text" id="nameField" placeholder="Your name" required />
+      <button type="submit">Submit</button>
+    </form>
+    <p id="submitResult"></p>
 
-  <!-- Submit Event -->
-  <form onsubmit="handleSubmit(event)">
-    <input type="text" id="nameField" placeholder="Your name" required />
-    <button type="submit">Submit</button>
-  </form>
-  <p id="submitResult"></p>
+    <script>
+      function handleClick() {
+        document.getElementById("clickResult").innerText =
+          "Button was clicked!";
+      }
 
-  <script>
-    function handleClick() {
-      document.getElementById("clickResult").innerText = "Button was clicked!";
-    }
+      function handleMouseOver() {
+        document.getElementById("box").style.backgroundColor = "orange";
+      }
 
-    function handleMouseOver() {
-      document.getElementById("box").style.backgroundColor = "orange";
-    }
+      function handleMouseOut() {
+        document.getElementById("box").style.backgroundColor = "lightblue";
+      }
 
-    function handleMouseOut() {
-      document.getElementById("box").style.backgroundColor = "lightblue";
-    }
+      function handleKeyup() {
+        let value = document.getElementById("keyInput").value;
+        document.getElementById("keyResult").innerText = "You typed: " + value;
+      }
 
-    function handleKeyup() {
-      let value = document.getElementById("keyInput").value;
-      document.getElementById("keyResult").innerText = "You typed: " + value;
-    }
-
-    function handleSubmit(event) {
-      event.preventDefault(); // Prevent actual form submission
-      let name = document.getElementById("nameField").value;
-      document.getElementById("submitResult").innerText = "Submitted: " + name;
-    }
-  </script>
-
-</body>
+      function handleSubmit(event) {
+        event.preventDefault(); // Prevent actual form submission
+        let name = document.getElementById("nameField").value;
+        document.getElementById("submitResult").innerText =
+          "Submitted: " + name;
+      }
+    </script>
+  </body>
 </html>
