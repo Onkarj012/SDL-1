@@ -15,3 +15,10 @@ post '/reverse' do
   erb :reverse
 end
 
+post '/reversechar' do
+  @first_name = params[:first_name]
+  @last_name = params[:last_name]
+
+  @reversed_name = "#{@last_name.reverse} #{@first_name.reverse}"
+  erb :reverse
+end

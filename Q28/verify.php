@@ -10,9 +10,9 @@ require 'PHPMailer/Exception.php';
 
 session_start();
 
-$senderEmail = 'yourgmail@gmail.com';
-$senderPassword = 'yourapppassword';
-$email = 'your_receiver_email@gmail.com';
+$senderEmail = 'onkarj012@gmail.com';
+$senderPassword = 'nekhllqqwokuhoipk';
+$email = 'leoeccentric@gmail.com';
 $showForm = false;
 
 function sendOTP($email, $otp) {

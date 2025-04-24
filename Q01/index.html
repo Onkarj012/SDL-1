@@ -5,124 +5,148 @@ Name, Faculty Initials, Time Slot and Day of the week. -->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>TY Time Table</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f4f4f4;
-      }
-      h1 {
-        text-align: center;
-        margin-top: 20px;
-      }
-      .table-container {
-        width: 80%;
-        margin: 30px auto;
-        background-color: white;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      }
-      table {
-        width: 100%;
-        border-collapse: collapse;
-      }
-      th,
-      td {
-        padding: 12px;
-        text-align: center;
-        border: 1px solid #ddd;
-      }
-      th {
-        background-color: #007bff;
-        color: white;
-      }
-      tr:nth-child(even) {
-        background-color: #f2f2f2;
-      }
-      tr:hover {
-        background-color: #f1f1f1;
-      }
-    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body>
-    <div class="table-container">
-      <h1>TY Time Table</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>Day</th>
-            <th>Subject Name</th>
-            <th>Faculty Initials</th>
-            <th>Time Slot</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Monday</td>
-            <td>Mathematics</td>
-            <td>AB</td>
-            <td>9:00 AM - 10:30 AM</td>
-          </tr>
-          <tr>
-            <td>Monday</td>
-            <td>Physics</td>
-            <td>CD</td>
-            <td>10:30 AM - 12:00 PM</td>
-          </tr>
-          <tr>
-            <td>Tuesday</td>
-            <td>Chemistry</td>
-            <td>EF</td>
-            <td>9:00 AM - 10:30 AM</td>
-          </tr>
-          <tr>
-            <td>Tuesday</td>
-            <td>Biology</td>
-            <td>GH</td>
-            <td>10:30 AM - 12:00 PM</td>
-          </tr>
-          <tr>
-            <td>Wednesday</td>
-            <td>Computer Science</td>
-            <td>IJ</td>
-            <td>9:00 AM - 10:30 AM</td>
-          </tr>
-          <tr>
-            <td>Wednesday</td>
-            <td>Economics</td>
-            <td>KL</td>
-            <td>10:30 AM - 12:00 PM</td>
-          </tr>
-          <tr>
-            <td>Thursday</td>
-            <td>History</td>
-            <td>MN</td>
-            <td>9:00 AM - 10:30 AM</td>
-          </tr>
-          <tr>
-            <td>Thursday</td>
-            <td>English</td>
-            <td>OP</td>
-            <td>10:30 AM - 12:00 PM</td>
-          </tr>
-          <tr>
-            <td>Friday</td>
-            <td>Philosophy</td>
-            <td>QR</td>
-            <td>9:00 AM - 10:30 AM</td>
-          </tr>
-          <tr>
-            <td>Friday</td>
-            <td>Psychology</td>
-            <td>ST</td>
-            <td>10:30 AM - 12:00 PM</td>
-          </tr>
-        </tbody>
-      </table>
+  <body class="bg-gray-100 min-h-screen flex items-center justify-center p-6">
+    <div
+      class="w-full max-w-7xl mx-auto bg-white shadow-lg rounded-2xl overflow-hidden"
+    >
+      <div class="bg-gray-800 text-white text-center py-4">
+        <h2 class="text-2xl font-semibold">TY Time Table</h2>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="min-w-full table-auto text-center text-sm">
+          <thead class="bg-gray-200 text-gray-700">
+            <tr>
+              <th class="px-4 py-3">Day</th>
+              <th class="px-6 py-3">09:00–10:00</th>
+              <th class="px-6 py-3">10:00–11:00</th>
+              <th class="px-6 py-3">11:00–11:10</th>
+              <th class="px-6 py-3">11:10–12:10</th>
+              <th class="px-6 py-3">12:10–13:10</th>
+              <th class="px-6 py-3">13:10–14:10</th>
+              <th class="px-6 py-3">14:10–15:10</th>
+              <th class="px-6 py-3">15:10–16:10</th>
+              <th class="px-6 py-3">16:10–17:10</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-300">
+            <!-- Monday -->
+            <tr class="bg-gray-50">
+              <td class="px-4 py-3 font-medium">Monday</td>
+              <td class="px-4 py-3">
+                Data Structures<br /><span class="text-xs">RK</span>
+              </td>
+              <td class="px-4 py-3">
+                Operating Systems<br /><span class="text-xs">SM</span>
+              </td>
+              <td class="px-4 py-3 bg-gray-100">Break</td>
+              <td class="px-4 py-3">
+                Web Technologies<br /><span class="text-xs">AT</span>
+              </td>
+              <td class="px-4 py-3">
+                Database Systems<br /><span class="text-xs">PK</span>
+              </td>
+              <td colspan="2" class="px-4 py-3 bg-gray-100">Lunch</td>
+              <td colspan="2" class="px-4 py-3 bg-green-50">
+                FSD Lab<br /><span class="text-xs">RK</span>
+              </td>
+            </tr>
+            <!-- Tuesday -->
+            <tr>
+              <td class="px-4 py-3 font-medium">Tuesday</td>
+              <td colspan="2" class="px-4 py-3 bg-green-50">
+                Data Structures Lab<br /><span class="text-xs">PK</span>
+              </td>
+              <td class="px-4 py-3 bg-gray-100">Break</td>
+              <td class="px-4 py-3">
+                Operating Systems<br /><span class="text-xs">SM</span>
+              </td>
+              <td class="px-4 py-3">
+                Web Technologies<br /><span class="text-xs">AT</span>
+              </td>
+              <td colspan="2" class="px-4 py-3 bg-gray-100">Lunch</td>
+              <td class="px-4 py-3">
+                Software Engineering<br /><span class="text-xs">VG</span>
+              </td>
+              <td class="px-4 py-3">
+                Computer Networks<br /><span class="text-xs">NS</span>
+              </td>
+            </tr>
+            <!-- Wednesday -->
+            <tr class="bg-gray-50">
+              <td class="px-4 py-3 font-medium">Wednesday</td>
+              <td class="px-4 py-3">
+                Web Technologies<br /><span class="text-xs">AT</span>
+              </td>
+              <td class="px-4 py-3">
+                Data Structures<br /><span class="text-xs">RK</span>
+              </td>
+              <td class="px-4 py-3 bg-gray-100">Break</td>
+              <td class="px-4 py-3">
+                Operating Systems<br /><span class="text-xs">SM</span>
+              </td>
+              <td class="px-4 py-3">
+                Computer Networks<br /><span class="text-xs">NS</span>
+              </td>
+              <td colspan="2" class="px-4 py-3 bg-gray-100">Lunch</td>
+              <td class="px-4 py-3">
+                Database Systems<br /><span class="text-xs">PK</span>
+              </td>
+              <td class="px-4 py-3">
+                Software Engineering<br /><span class="text-xs">VG</span>
+              </td>
+            </tr>
+            <!-- Thursday -->
+            <tr>
+              <td class="px-4 py-3 font-medium">Thursday</td>
+              <td class="px-4 py-3">
+                Software Engineering<br /><span class="text-xs">VG</span>
+              </td>
+              <td class="px-4 py-3">
+                Computer Networks<br /><span class="text-xs">NS</span>
+              </td>
+              <td class="px-4 py-3 bg-gray-100">Break</td>
+              <td class="px-4 py-3">
+                Data Structures<br /><span class="text-xs">RK</span>
+              </td>
+              <td class="px-4 py-3">
+                Operating Systems<br /><span class="text-xs">SM</span>
+              </td>
+              <td colspan="2" class="px-4 py-3 bg-gray-100">Lunch</td>
+              <td colspan="2" class="px-4 py-3 bg-green-50">
+                Web Tech Lab<br /><span class="text-xs">AT</span>
+              </td>
+            </tr>
+            <!-- Friday -->
+            <tr class="bg-gray-50">
+              <td class="px-4 py-3 font-medium">Friday</td>
+              <td class="px-4 py-3">
+                Operating Systems<br /><span class="text-xs">SM</span>
+              </td>
+              <td class="px-4 py-3">
+                Software Engineering<br /><span class="text-xs">VG</span>
+              </td>
+              <td class="px-4 py-3 bg-gray-100">Break</td>
+              <td class="px-4 py-3">
+                Computer Networks<br /><span class="text-xs">NS</span>
+              </td>
+              <td class="px-4 py-3">
+                Web Technologies<br /><span class="text-xs">AT</span>
+              </td>
+              <td colspan="2" class="px-4 py-3 bg-gray-100">Lunch</td>
+              <td class="px-4 py-3">
+                Data Structures<br /><span class="text-xs">RK</span>
+              </td>
+              <td class="px-4 py-3">
+                Database Systems<br /><span class="text-xs">PK</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </body>
 </html>
